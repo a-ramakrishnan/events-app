@@ -6,30 +6,20 @@
     <div class="event-card -shadow">
       <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
       <h4 class="title">{{ event.title }}</h4>
-      <span>{{ event.attendees.length }} attending</span>
+      <BaseIcon name="users" width="16px" height="16px"></BaseIcon>
+      <span> {{ event.attendees.length }} attending</span>
     </div>
   </router-link>
 </template>
 
 <script>
+import BaseIcon from "@/components/BaseIcon";
 export default {
   name: "EventCard",
-  data() {
-    return {
-      event: {
-        id: 101,
-        title: "Park Cleanup",
-        date: "Aug 12th 2020",
-        time: "6:00pm",
-        attendees: [
-          { id: "1bc", name: "Ramki" },
-          { id: "2de", name: "Mythri" },
-          { id: "3fg", name: "Priya" },
-          { id: "4hi", name: "Anika" }
-        ]
-      }
-    };
-  }
+  props: {
+    event: Object
+  },
+  components: { BaseIcon }
 };
 </script>
 
